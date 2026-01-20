@@ -25,4 +25,10 @@ for (i=0; i<=2; i++) {
 
 }
 
-console.log(myUnorderedList);
+myImage = document.createElement(`img`);
+myImage.src = `https://picsum.photos/200`;
+myImage.classlist = `cute`;
+myImage.width = 250;
+myImage.alt = `Cute Puppy`;
+document.body.append(myImage);
+console.log(myImage);
