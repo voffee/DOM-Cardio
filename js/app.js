@@ -1,6 +1,6 @@
 
 myDiv = document.createElement('div');
-myDiv.classlist = 'wrapper';
+myDiv.classlist = `wrapper`;
 
 document.body.append(myDiv);
 
@@ -25,10 +25,27 @@ for (i=0; i<=2; i++) {
 
 }
 
-myImage = document.createElement(`img`);
+myDiv.append(myUnorderedList);
+
+const myImage = document.createElement(`img`);
 myImage.src = `https://picsum.photos/200`;
 myImage.classlist = `cute`;
 myImage.width = 250;
 myImage.alt = `Cute Puppy`;
 document.body.append(myImage);
-console.log(myImage);
+
+const myString = `
+                <div>
+                    <p></p>
+                    <p></p>
+                </div>`;
+
+const myFrag = document.createRange().createContextualFragment(myString);
+// document.body.insertAdjacentHTML("afterbegin", myString);
+// console.log(myFrag);
+myDiv.prepend(myFrag);
+console.log(myDiv.firstChild.nextElementSibling.lastElementChild);
+myDiv.firstChild.nextElementSibling.lastElementChild.classList.add('warning');
+
+console.log(myDiv.firstChild.nextElementSibling.firstElementChild);
+myDiv.firstChild.nextElementSibling.firstElementChild.remove();
