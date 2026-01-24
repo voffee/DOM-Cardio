@@ -49,3 +49,20 @@ myDiv.firstChild.nextElementSibling.lastElementChild.classList.add('warning');
 
 console.log(myDiv.firstChild.nextElementSibling.firstElementChild);
 myDiv.firstChild.nextElementSibling.firstElementChild.remove();
+
+function generatePlayerCard(name, age, height) {
+    console.log(name);
+    console.log(age);
+    console.log(height);
+
+    const cardTemplate = `
+                <div class='playerCard'>
+                    <h2>${name} - ${age}</h2>
+                    <p>They are ${height} and ${age} years old.</p>
+                </div>
+    `;
+
+    const strConvert = document.createRange().createContextualFragment(cardTemplate);
+
+    return (strConvert);
+}
