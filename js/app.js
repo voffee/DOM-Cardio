@@ -19,9 +19,10 @@ for (i=0; i<=2; i++) {
         myUnorderedList.append(myListItems);
     }
 
-    else 
+    else  {
         myListItems.textContent = `Three`; 
         myUnorderedList.append(myListItems);
+    }
 
 }
 
@@ -29,7 +30,7 @@ myDiv.append(myUnorderedList);
 
 const myImage = document.createElement(`img`);
 myImage.src = `https://picsum.photos/200`;
-myImage.classlist = `cute`;
+myImage.classList = `cute`;
 myImage.width = 250;
 myImage.alt = `Cute Puppy`;
 document.body.append(myImage);
@@ -50,6 +51,10 @@ myDiv.firstChild.nextElementSibling.lastElementChild.classList.add('warning');
 console.log(myDiv.firstChild.nextElementSibling.firstElementChild);
 myDiv.firstChild.nextElementSibling.firstElementChild.remove();
 
+const newDiv = document.createElement(`div`);
+newDiv.classList.add(`cards`);
+console.log(newDiv);
+
 function generatePlayerCard(name, age, height) {
     console.log(name);
     console.log(age);
@@ -58,11 +63,21 @@ function generatePlayerCard(name, age, height) {
     const cardTemplate = `
                 <div class='playerCard'>
                     <h2>${name} - ${age}</h2>
-                    <p>They are ${height} and ${age} years old.</p>
+                    <p>They are ${height} cm tall and ${age} years old.</p>
+                    <button type="button">DELETE</button>
                 </div>
     `;
 
     const strConvert = document.createRange().createContextualFragment(cardTemplate);
 
+    document.body.insertAdjacentElement("afterbegin", newDiv);
+
     return (strConvert);
+}
+
+for (i=0; i<=1; i++) {
+        const userName = prompt("Enter player name:")
+        const userAge = prompt("Enter player age:")
+        const userHeight = prompt("Enter height in CM:")
+        newDiv.append(generatePlayerCard(userName, userAge, userHeight));
 }
